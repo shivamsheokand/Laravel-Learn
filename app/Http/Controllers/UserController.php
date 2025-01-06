@@ -17,8 +17,10 @@ class UserController extends Controller
         return view("getuser",['name'=>$name]);
     }
     function adminLogin(){
-        if(View::exists('admin.signup')){
-                return view("admin.signup");
+        if(View::exists('admin.login')){
+            $name = "sam";
+            $users=['sam','anil','ram'];
+                return view("admin.login",['username'=>$name,'usersArr'=>$users]);
         }else{
             echo "Route not Found :)";
         }
