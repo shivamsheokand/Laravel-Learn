@@ -1,4 +1,9 @@
+@include('common.header')
 <div>
-    Life is available only in the present moment. - Thich Nhat Hanh
-    <h1>user name is : {{$name}}</h1>
+    <h1>About page</h1>
 </div>
+@include('common.inner',['data'=>'this is about page'])
+<!-- file not found error buypass use @incudeIf('filename') -->
+<!-- @includeIf('common.inners',['data'=>'this is about page'])   -->
+
+
