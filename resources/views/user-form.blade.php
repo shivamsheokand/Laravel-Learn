@@ -1,20 +1,35 @@
 <div class="container">
     <h1>Add User</h1>
+    <!-- {{print_r($errors)}}-->
+
+<!-- @if($errors->any())
+@foreach($errors->all() as $error)
+<div class="error-message">
+    {{$error}}
+</div>
+@endforeach
+@endif -->
     <form action="addUser" method="post">
         @csrf
         <div class="input-wrapper">
             <input type="text" class="inputf" placeholder="Enter User Name" name="username">
+            <span class="error-message">@error('username'){{$message}}@enderror</span>
         </div>
+
         <div class="input-wrapper">
             <input class="inputf" type="email" placeholder="Enter User Email" name="email">
+            <span class="error-message">@error('email'){{$message}}@enderror</span>
         </div>
+
         <div class="input-wrapper">
             <input type="text" class="inputf" placeholder="Enter User City" name="city">
+            <span class="error-message">@error('city'){{$message}}@enderror</span>
         </div>
+
         <div>
             <fieldset>
                 <legend>Select Your Subjects:</legend>
-                <input type="checkbox" name="check[]" id="checkbox1" value="html" checked>
+                <input type="checkbox" name="check[]" id="checkbox1" value="html">
                 <label for="checkbox1">HTML</label>
                 <br>
 
@@ -24,8 +39,10 @@
 
                 <input type="checkbox" name="check[]" id="checkbox3" value="javascript">
                 <label for="checkbox3">JavaScript</label>
+                <span class="error-message">@error('check'){{$message}}@enderror</span>
             </fieldset>
         </div>
+
         <div>
             <button type="submit">Submit</button>
         </div>
@@ -76,11 +93,6 @@
         padding: 5px;
         color: #ff6600;
         font-size: 16px;
-        margin-bottom: 10px;
-    }
-
-    input[type="email"] {
-        color: #ff6600;
     }
 
     button {
@@ -117,5 +129,24 @@
 
     input[type="checkbox"] {
         margin-right: 5px;
+    }
+
+    .error-message {
+        display: block;
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        text-align: left;
+        font-family: Arial, sans-serif;
+    }
+
+    .error-message a {
+        color: #721c24;
+        text-decoration: underline;
     }
 </style>
