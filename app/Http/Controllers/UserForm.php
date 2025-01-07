@@ -12,8 +12,10 @@ class UserForm extends Controller
         $req->validate([
             'username'=>'required | min:3 | max:100',
             'email'=>'required | email',
-            'city'=>'required | max:100',
+            'city'=>'required | max:100 | Uppercase',
             'check'=>'required',
+        ],[
+            'username.required'=>'username can not be empty'
         ]);
         echo "User Name is $req->username";
         echo"<br>";
