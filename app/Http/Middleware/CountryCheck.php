@@ -15,7 +15,12 @@ class CountryCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        echo "country check";
+        // echo "country check";
+        // echo "<pre/>";
+        // print_r($request);
+        if($request->country!="india"){
+            die("ur not vist this site outside india");
+        }
         return $next($request);
     }
 }
