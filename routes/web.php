@@ -24,5 +24,10 @@ Route::get('/about/{name}',function(){
 Route::view('about','about'); // short way to show view
 Route::post('addUser', [userForm::class, 'addUser'] );
 
+
+
+Route::prefix('student')->group(function(){
 Route::get('show',[Home::class,'show']);
 Route::get('user',[Home::class,'user']);
+});
+
