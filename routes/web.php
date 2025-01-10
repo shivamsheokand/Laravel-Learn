@@ -31,3 +31,9 @@ Route::get('show',[Home::class,'show']);
 Route::get('user',[Home::class,'user']);
 });
 
+// group controllers
+
+Route::controller(Home::class)->group(function(){
+    Route::get('show','show');
+Route::get('user','user');
+});
