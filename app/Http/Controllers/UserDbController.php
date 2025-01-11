@@ -9,6 +9,7 @@ class UserDbController extends Controller
     //
     function users(){
         // echo "this is users function";
-        return DB::select('select * from users');
+        $users= DB::select('select * from users');
+        return view('users',["users"=>$users]);
     }
 }

@@ -10,3 +10,5 @@ Route::get('/', function () {
 Route::view('about','about')->middleware(AgeCheck::class); // short way to show view
 
 Route::get('users',[UserDbController::class, 'users']);
+
+// Route::view('user','users');
