@@ -45,4 +45,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    function testFun(){
+        return "test fun";
+    }
 }
