@@ -21,10 +21,20 @@ class UserDbController extends Controller
     function queries(){
         // $result = DB::table('users')->get();
         // $result = DB::table('users')->where('email','sam@gmail.com')->get();
-        $result = DB::table('users')->first();
-        $result = [$result];
+        // $result = DB::table('users')->first();
+        // $result = [$result];
         // echo $result;
         // return $result;
-        return view('users',['data'=>$result]);
+        // return view('users',['data'=>$result]);
+        $result = DB::table('users')->insert([
+            'name'=>'tony',
+            'email'=>'tony@gmail.com',
+            'password'=>'tony',
+        ]);
+        if($result){
+            return 'Data added sucess';
+        }else{
+            return 'Data not added ';
+        }
     }
 }
