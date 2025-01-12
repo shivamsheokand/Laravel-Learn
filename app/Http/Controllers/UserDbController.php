@@ -26,15 +26,31 @@ class UserDbController extends Controller
         // echo $result;
         // return $result;
         // return view('users',['data'=>$result]);
-        $result = DB::table('users')->insert([
-            'name'=>'tony',
-            'email'=>'tony@gmail.com',
-            'password'=>'tony',
-        ]);
-        if($result){
-            return 'Data added sucess';
+
+
+        // insert
+        // $result = DB::table('users')->insert([
+        //     'name'=>'tony',
+        //     'email'=>'tony@gmail.com',
+        //     'password'=>'tony',
+        // ]);
+        // if($result){
+        //     return 'Data added sucess';
+        // }else{
+        //     return 'Data not added ';
+        // }
+
+
+        // update
+
+        $res = DB::table('users')->where('email','sam1@gmail.com')->update(['name'=>'sam1']);
+
+        if($res){
+            return "data Updated";
         }else{
-            return 'Data not added ';
+            return "data update feaild";
         }
+        // $result = DB::table('users')->get();
+        // return view('users',['data'=>$result]);
     }
 }
