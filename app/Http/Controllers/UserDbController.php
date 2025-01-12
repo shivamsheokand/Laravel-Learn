@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+use  App\Models\User;
 class UserDbController extends Controller
 {
     //
@@ -52,12 +54,45 @@ class UserDbController extends Controller
         // }
         // $result = DB::table('users')->get();
         // return view('users',['data'=>$result]);
-        $res=DB::table('users')->where('email','sam1@gmail.com')->delete();
+        // $res=DB::table('users')->where('email','sam1@gmail.com')->delete();
 
-        if($res){
-            return "data deleted";
-        }else{
-            return "data delete feaild";
-        }
+        // if($res){
+        //     return "data deleted";
+        // }else{
+        //     return "data delete feaild";
+        // }
+
+
+        $res=User::all();
+        // $res=User::where("email","sam@gmail.com")->get();
+        // $res=User::where("email","sam@gmail.com")->first();
+        // $res =[$res];
+
+        // insert 
+        // $result = DB::table('users')->insert([
+        //     'name'=>'raju',
+        //     'email'=>'raju@gmail.com',
+        //     'password'=>'raju',
+        // ]);
+        // if($result){
+        //     return 'Data added sucess';
+        // }else{
+        //     return 'Data not added ';
+        // }
+        
+        // $res=User::where('name','raju')->update(['password'=>'123']);
+        // if($res){
+        //     return "data updated";
+        // }else{
+        //     return "data update field";
+        // }
+        // $res=User::where('name','raju')->delete();
+        // if($res){
+        //     return "data deleted";
+        // }else{
+        //     return "data delete field";
+        // }
+        return view('users',['data'=>$res]);
+
     }
 }
