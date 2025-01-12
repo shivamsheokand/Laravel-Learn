@@ -43,14 +43,21 @@ class UserDbController extends Controller
 
         // update
 
-        $res = DB::table('users')->where('email','sam1@gmail.com')->update(['name'=>'sam1']);
+        // $res = DB::table('users')->where('email','sam1@gmail.com')->update(['name'=>'sam1']);
 
-        if($res){
-            return "data Updated";
-        }else{
-            return "data update feaild";
-        }
+        // if($res){
+        //     return "data Updated";
+        // }else{
+        //     return "data update feaild";
+        // }
         // $result = DB::table('users')->get();
         // return view('users',['data'=>$result]);
+        $res=DB::table('users')->where('email','sam1@gmail.com')->delete();
+
+        if($res){
+            return "data deleted";
+        }else{
+            return "data delete feaild";
+        }
     }
 }
