@@ -17,4 +17,14 @@ class UserDbController extends Controller
         return view('users',['data'=>$users]);
 
     }
+
+    function queries(){
+        // $result = DB::table('users')->get();
+        // $result = DB::table('users')->where('email','sam@gmail.com')->get();
+        $result = DB::table('users')->first();
+        $result = [$result];
+        // echo $result;
+        // return $result;
+        return view('users',['data'=>$result]);
+    }
 }

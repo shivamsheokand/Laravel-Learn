@@ -15,3 +15,6 @@ Route::get('user',[UserDbController::class, 'user']);
 // Route::view('user','users');
 
 Route::get('users',[UserController::class,'userdata']);
+
+// queries
+Route::get('queries',[UserDbController::class,'queries']);
