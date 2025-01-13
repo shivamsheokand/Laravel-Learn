@@ -9,17 +9,6 @@ use  App\Models\User;
 class UserDbController extends Controller
 {
     //
-    function user(){
-        // echo "this is users function";
-        // $users= DB::select('select * from users');
-        // return view('users',["users"=>$users]);
-        $users= \App\Models\User::all();
-        $data = new \App\Models\User;
-        echo $data->testFun();
-        return view('users',['data'=>$users]);
-
-    }
-
     function queries(){
         // $result = DB::table('users')->get();
         // $result = DB::table('users')->where('email','sam@gmail.com')->get();
@@ -63,7 +52,6 @@ class UserDbController extends Controller
         // }
 
 
-        $res=User::all();
         // $res=User::where("email","sam@gmail.com")->get();
         // $res=User::where("email","sam@gmail.com")->first();
         // $res =[$res];
@@ -92,7 +80,7 @@ class UserDbController extends Controller
         // }else{
         //     return "data delete field";
         // }
-        return view('users',['data'=>$res]);
+        // return view('users',['data'=>$res]);
 
     }
 }
