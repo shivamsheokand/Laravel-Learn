@@ -15,4 +15,19 @@ class UserController extends Controller
 
         return view('userdata',['data'=>json_decode($data)]);
     }
+    function user(){
+        return view('home');
+    }
+     function get(Request $req){
+        return $req;
+    } function post(){
+        return "post method called";
+    }
+     function put(){
+        return "put method called";
+    }
+     function delete(){
+        return "delete method called";
+    }
+    
 }
