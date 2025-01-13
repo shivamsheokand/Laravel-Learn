@@ -21,6 +21,7 @@ Route::get('queries',[UserDbController::class,'queries']);
 
 // Route::get('user',[UserController::class,'Data']);
 Route::post('user',[UserController::class,'Data']);
+// Route::get('user',[UserController::class,'user']);
 // Route::put('user',[UserController::class,'put']);
 // Route::delete('user',[UserController::class,'delete']);
 

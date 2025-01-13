@@ -46,15 +46,17 @@ class UserController extends Controller
     function Data(Request $res){
         // $data = User::get();
         // return $data;
-    $result = DB::table('users')->insert([
+        $result = DB::table('users')->insert([
             'name'=>$res->name,
             'email'=>$res->email,
             'password'=>$res->password,
         ]);
         if($result){
-            return 'Data added sucess';
+            $res =DB::table('users')->get();
         }else{
             return 'Data not added ';
         }
+
+
     }
 }
