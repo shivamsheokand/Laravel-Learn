@@ -9,7 +9,7 @@
 </div>
 @endforeach
 @endif -->
-    <form action="/get" method="post">
+    <form action="/user" method="post">
         <input type="hidden" name="_method" value="DELETE"/>
         @csrf
         <div class="input-wrapper">
@@ -18,7 +18,7 @@
         </div>
 
         <div class="input-wrapper">
-            <input class="inputf" type="email" placeholder="Enter User Email" name="email">
+            <!-- <input class="inputf" type="email" placeholder="Enter User Email" name="email"> -->
             <!-- <span class="error-message">@error('email'){{$message}}@enderror</span> -->
         </div>
 
