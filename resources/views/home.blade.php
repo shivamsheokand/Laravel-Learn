@@ -10,20 +10,20 @@
 @endforeach
 @endif -->
     <form action="/user" method="post">
-        <input type="hidden" name="_method" value="DELETE"/>
+        <!-- <input type="hidden" name="_method" value="DELETE"/> -->
         @csrf
         <div class="input-wrapper">
-            <input type="text" class="inputf" placeholder="Enter User Name" name="username">
+            <input type="text" class="inputf" placeholder="Enter User Name" name="name">
             <!-- <span class="error-message">@error('username'){{$message}}@enderror</span> -->
         </div>
 
         <div class="input-wrapper">
-            <!-- <input class="inputf" type="email" placeholder="Enter User Email" name="email"> -->
+            <input class="inputf" type="email" placeholder="Enter User Email" name="email">
             <!-- <span class="error-message">@error('email'){{$message}}@enderror</span> -->
         </div>
 
         <div class="input-wrapper">
-            <input type="text" class="inputf" placeholder="Enter User City" name="city">
+            <input type="password" class="inputf" placeholder="Enter User Password" name="password">
             <!-- <span class="error-message">@error('city'){{$message}}@enderror</span> -->
         </div>
 

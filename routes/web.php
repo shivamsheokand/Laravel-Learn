@@ -14,17 +14,17 @@ Route::view('about','about')->middleware(AgeCheck::class); // short way to show 
 
 // Route::view('user','users');
 
-Route::get('form',[UserController::class,'user']);
+Route::view('form','home');
 
 // queries
 Route::get('queries',[UserDbController::class,'queries']);
 
-// Route::get('user',[UserController::class,'user']);
-// Route::post('user',[UserController::class,'post']);
+// Route::get('user',[UserController::class,'Data']);
+Route::post('user',[UserController::class,'Data']);
 // Route::put('user',[UserController::class,'put']);
 // Route::delete('user',[UserController::class,'delete']);
 
 // Route::any('usermethod',[UserController::class,'any']);
 
-Route::match(['get','post'],'user',[UserController::class, 'group1']);
-Route::match(['put','delete'],'user',[UserController::class, 'group2']);
+// Route::match(['get','post'],'user',[UserController::class, 'group1']);
+// Route::match(['put','delete'],'user',[UserController::class, 'group2']);
