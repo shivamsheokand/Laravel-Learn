@@ -34,3 +34,4 @@ Route::view('profile','profile');
 
 Route::post('user',[Login::class,'Login']);
 Route::get('logout',[Login::class,'Logout']);
+// Route::get('form',[Login::class,'Login']);

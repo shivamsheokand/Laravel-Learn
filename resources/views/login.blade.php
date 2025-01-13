@@ -1,5 +1,8 @@
 <div class="container">
     <h1>Login Form</h1>
+    @if(session("message"))
+    {{session("message")}}
+    @endif
     <form action="/user" method="post">
         <!-- <input type="hidden" name="_method" value="DELETE"/> -->
         @csrf
