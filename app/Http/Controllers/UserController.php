@@ -20,12 +20,14 @@ class UserController extends Controller
         $user->save();
         if($user){
             echo "new data added";
-            $data = DB::table('users')->get();
+            // $data = DB::table('users')->get();
+            // $data = User::all();
 
-            return view('users',["data"=>$data]);
+            return "data added";
         }else{
             return "error";
         }
+       
 
         // $data = DB::table("users")->insert([
         //     "name"=>$req->name,
@@ -40,4 +42,17 @@ class UserController extends Controller
         //     return "error";
         // }
     }
+
+    function user(Request $req){
+    $req = User::all();
+        return view('users',["data"=>$req]);
+    }
+    function delete($id){
+        $isDeleted=User::destroy($id);
+        if($isDeleted){
+             $req = User::all();
+        return view('users',["data"=>$req]);
+        }
+    }
 }
+

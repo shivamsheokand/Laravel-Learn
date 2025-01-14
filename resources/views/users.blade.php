@@ -8,6 +8,7 @@
                 <th style="padding: 10px; border: 1px solid #ddd;">Name</th>
                 <th style="padding: 10px; border: 1px solid #ddd;">Password</th>
                 <th style="padding: 10px; border: 1px solid #ddd;">Email</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Oprations</th>
             </tr>
         </thead>
         <tbody>
@@ -16,7 +17,11 @@
                 <td style="padding: 10px; border: 1px solid #ddd;">{{$user->name}}</td>
                 <td style="padding: 10px; border: 1px solid #ddd;">{{$user->password}}</td>
                 <td style="padding: 10px; border: 1px solid #ddd;">{{$user->email}}</td>
-            </tr>
+                <td style="padding: 10px; border: 1px solid #ddd;">
+                     <a href="{{'delete/'.$user->id}}" >Delete</a>
+                </tr>
+                </td>
+               
             @endforeach
         </tbody>
     </table>

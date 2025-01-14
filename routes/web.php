@@ -7,4 +7,7 @@ Route::get('/', function () {
 });
 
 Route::view("addUser","add-uesr");
+// Route::view("users","users");
+Route::get('users',[UserController::class,"user"]);
+Route::get('delete/{id}',[UserController::class,"delete"]);
 Route::post('addUser',[UserController::class,"adduser"]);
