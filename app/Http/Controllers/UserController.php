@@ -44,13 +44,13 @@ class UserController extends Controller
     }
 
     function user(Request $req){
-    $req = User::all();
+        $req = User::paginate(4);
         return view('users',["data"=>$req]);
     }
     function delete($id){
         $isDeleted=User::destroy($id);
         if($isDeleted){
-            $req = User::all();
+            $req = User::paginate(4);
             $data = view('users',["data"=>$req]);
             return redirect('users');
         }
@@ -77,7 +77,7 @@ class UserController extends Controller
         }
     }
     function search(Request $req){
-        $data=User::where('name','like',"%$req->search%")->get();
+        $data=User::where('name','like',"%$req->search%")->paginate(3);
         return view('users',["data"=>$data],['sec'=>$req->search]);
     }
 }
