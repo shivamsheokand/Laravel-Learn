@@ -2,49 +2,114 @@
     <h3 style="text-align: center; color: #4CAF50; font-size: 24px; margin-bottom: 20px;">
         Users List
     </h3>
-   <form action="/search" method="get" class="search-form">
-    <input type="text" placeholder="Search name" name="search" class="search-input" value="{{@$sec}}"/>
-    <button type="submit" class="search-button">Submit</button>
-</form>
-<form action="/deletemut" method="post">
-    @csrf
-    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-        <thead>
-            <tr style="background-color: #4CAF50; color: white; text-align: left;">
-                <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Section</th>
-                <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Name</th>
-                <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Password</th>
-                <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Email</th>
-                <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Operations</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($data as $user)
-            <tr style="background-color: #f9f9f9; text-align: left; color: #333;">
-                <td style="padding: 12px; border: 1px solid #ddd;"><input type="checkbox" name="ids[]" value="{{$user->id}}"/></td>
-                <td style="padding: 12px; border: 1px solid #ddd;">{{$user->name}}</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">{{$user->password}}</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">{{$user->email}}</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">
-                    <a href="{{'delete/'.$user->id}}" style="color: #FF5733; text-decoration: none; padding: 4px 8px; border-radius: 4px; background-color: #f1f1f1; margin-right: 10px;">Delete</a>
-                    <a href="{{'edit/'.$user->id}}" style="color: #4CAF50; text-decoration: none; padding: 4px 8px; border-radius: 4px; background-color: #f1f1f1; margin-right: 10px;">Edit</a>
-                    <a href="/addUser" style="color: #3498db; text-decoration: none; padding: 4px 8px; border-radius: 4px; background-color: #f1f1f1;">Add</a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-
-    <button>Delete</button>
+    <form action="/search" method="get" class="search-form">
+        <input type="text" placeholder="Search name" name="search" class="search-input" value="{{@$sec}}"/>
+        <button type="submit" class="search-button">Search</button>
     </form>
-    <br/>
-    <br/>
-    <br/>
     
-    {{ $data->links() }}
+    <form action="/deletemut" method="post" style="margin-top: 20px;">
+        @csrf
+        <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <thead>
+                <tr style="background-color: #4CAF50; color: white; text-align: left;">
+                    <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Select</th>
+                    <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Section</th>
+                    <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Name</th>
+                    <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Password</th>
+                    <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Email</th>
+                    <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($data as $user)
+                    <tr style="background-color: #f9f9f9; text-align: left; color: #333;">
+                        <td style="padding: 12px; border: 1px solid #ddd;">
+                            <input type="checkbox" name="ids[]" value="{{$user->id}}"/>
+                        </td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">{{$user->section}}</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">{{$user->name}}</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">{{$user->password}}</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">{{$user->email}}</td>
+                        <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">
+                            <a href="{{'delete/'.$user->id}}" class="btn-delete">Delete</a>
+                            <a href="{{'edit/'.$user->id}}" class="btn-edit">Edit</a>
+                            <a href="/addUser" class="btn-add">Add</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <button type="submit" class="btn-delete-all">Delete Selected</button>
+    </form>
+
+    <div style="margin-top: 20px;">
+        {{ $data->links() }}
+    </div>
 </div>
 
 <style>
+    /* Table Styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+        text-align: left;
+    }
+
+    td {
+        background-color: #f9f9f9;
+        color: #333;
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 12px;
+    }
+
+    /* Link Styling for Operations */
+    a {
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        background-color: #f1f1f1;
+        margin-right: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+        background-color: #ddd;
+    }
+
+    .btn-delete {
+        color: #FF5733;
+    }
+
+    .btn-edit {
+        color: #4CAF50;
+    }
+
+    .btn-add {
+        color: #3498db;
+    }
+
+    .btn-delete-all {
+        background-color: #FF5733;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-delete-all:hover {
+        background-color: #e04e2e;
+    }
+
     /* Responsive Styles */
     @media (max-width: 768px) {
         h3 {
@@ -62,6 +127,15 @@
         .operations a {
             display: block;
             margin-bottom: 5px;
+        }
+
+        .search-form {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .search-input {
+            margin-bottom: 10px;
         }
     }
 
@@ -83,45 +157,8 @@
         }
     }
 
-    /* Table Styling */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    th {
-        background-color: #4CAF50;
-        color: white;
-        text-align: left;
-    }
-
-    td {
-        background-color: #f9f9f9;
-        color: #333;
-        border: 1px solid #ddd;
-        text-align: left;
-        padding: 12px;
-    }
-
-    /* Link Styling for Operations */
-    a {
-        text-decoration: none;
-        padding: 4px 8px;
-        border-radius: 4px;
-        background-color: #f1f1f1;
-        margin-right: 10px;
-        transition: background-color 0.3s ease;
-    }
-
-    a:hover {
-        background-color: #ddd;
-    }
-
-    /* Add some margin between buttons */
-    .operations a {
-        margin-right: 10px;
-    }
-      .search-form {
+    /* Search Form Styles */
+    .search-form {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -131,9 +168,9 @@
         padding: 10px 15px;
         border-radius: 5px;
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
     }
 
-    /* Input styling */
     .search-input {
         width: 100%;
         padding: 10px;
@@ -145,12 +182,10 @@
         transition: border-color 0.3s ease;
     }
 
-    /* Input focus state */
     .search-input:focus {
         border-color: #3498db;
     }
 
-    /* Button styling */
     .search-button {
         padding: 10px 15px;
         margin-left: 10px;
@@ -163,28 +198,12 @@
         transition: background-color 0.3s ease;
     }
 
-    /* Button hover state */
     .search-button:hover {
         background-color: #2980b9;
     }
 
-    /* Responsive styling */
-    @media (max-width: 600px) {
-        .search-form {
-            padding: 8px 12px;
-        }
-
-        .search-input {
-            font-size: 14px;
-            padding: 8px;
-        }
-
-        .search-button {
-            font-size: 14px;
-            padding: 8px 12px;
-        }
-    }
-    .w-5.h-5{
+    /* Pagination Styling */
+    .w-5.h-5 {
         width: 20px;
     }
 </style>

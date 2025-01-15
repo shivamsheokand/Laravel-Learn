@@ -81,11 +81,13 @@ class UserController extends Controller
         return view('users',["data"=>$data],['sec'=>$req->search]);
     }
     function deletemut(Request $req){
-        $isDeleted=User::destroy([$req->ids]);
+        $isDeleted=User::destroy($req->ids);
         if($isDeleted){
             $req = User::paginate(4);
             $data = view('users',["data"=>$req]);
             return redirect('users');
+        }else{
+            return "error form deleteing";
         }
     }
 }
