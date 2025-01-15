@@ -16,7 +16,7 @@ Route::get('/', function () {
 // Route::post('addUser',[UserController::class,"adduser"]);
 // Route::post('deletemut',[UserController::class,"deletemut"]);
 // Route::put('edit/{id}',[UserController::class,"updatedata"]);
-
+Route::view('about','about');
 Route::view('addimg','uploadimg');
 Route::post('uploadimg',[ImgCont::class,'upload']);
 Route::get('displayimg',[ImgCont::class,'display']);
