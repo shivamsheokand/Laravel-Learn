@@ -1,59 +1,48 @@
-<nav style="background-color: #333; padding: 10px 20px; border-radius: 8px;">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-        <!-- Logo or Brand Name -->
-        <a href="/" style="color: white; font-size: 24px; font-weight: bold; text-decoration: none;">
-            {{$title}}
-        </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{$title}}</title>
+    
+</head>
+<body>
 
-        <!-- Navigation Links -->
-        <ul style="list-style: none; display: flex; margin: 0; padding: 0;">
-            <li style="margin-left: 20px;">
-                <a href="/" style="color: white; text-decoration: none; font-size: 16px;">Home</a>
-            </li>
-            <li style="margin-left: 20px;">
-                <a href="/about" style="color: white; text-decoration: none; font-size: 16px;">About</a>
-            </li>
-            <li style="margin-left: 20px;">
-                <a href="/services" style="color: white; text-decoration: none; font-size: 16px;">Services</a>
-            </li>
-            <li style="margin-left: 20px;">
-                <a href="/contact" style="color: white; text-decoration: none; font-size: 16px;">Contact</a>
-            </li>
-        </ul>
-
-        <!-- Optional: Search bar or other items -->
-        <div>
-            <a href="/addimg" style="color: white; text-decoration: none; font-size: 16px; margin-left: 20px;">
-                Add Image
-            </a>
-        </div>
+    <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/about">About</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
+  </div>
 </nav>
-
-<style>
-    @media (max-width: 768px) {
-        nav div {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        ul {
-            width: 100%;
-            padding-left: 0;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-top: 10px;
-        }
-
-        ul li {
-            margin-left: 0;
-            margin-top: 10px;
-        }
-
-        ul li a {
-            padding: 8px 0;
-            width: 100%;
-            text-align: left;
-        }
-    }
-</style>
+</body>
+</html>
