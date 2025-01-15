@@ -80,5 +80,13 @@ class UserController extends Controller
         $data=User::where('name','like',"%$req->search%")->paginate(3);
         return view('users',["data"=>$data],['sec'=>$req->search]);
     }
+    function deletemut(Request $req){
+        $isDeleted=User::destroy([$req->ids]);
+        if($isDeleted){
+            $req = User::paginate(4);
+            $data = view('users',["data"=>$req]);
+            return redirect('users');
+        }
+    }
 }
 

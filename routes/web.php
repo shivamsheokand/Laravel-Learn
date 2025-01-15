@@ -13,4 +13,5 @@ Route::get('search',[UserController::class,"search"]);
 Route::get('delete/{id}',[UserController::class,"delete"]);
 Route::get('edit/{id}',[UserController::class,"edit"]);
 Route::post('addUser',[UserController::class,"adduser"]);
+Route::post('deletemut',[UserController::class,"deletemut"]);
 Route::put('edit/{id}',[UserController::class,"updatedata"]);

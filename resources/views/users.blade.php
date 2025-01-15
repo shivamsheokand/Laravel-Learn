@@ -6,9 +6,12 @@
     <input type="text" placeholder="Search name" name="search" class="search-input" value="{{@$sec}}"/>
     <button type="submit" class="search-button">Submit</button>
 </form>
+<form action="/deletemut" method="post">
+    @csrf
     <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
         <thead>
             <tr style="background-color: #4CAF50; color: white; text-align: left;">
+                <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Section</th>
                 <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Name</th>
                 <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Password</th>
                 <th style="padding: 12px; border: 1px solid #ddd; font-size: 16px;">Email</th>
@@ -18,6 +21,7 @@
         <tbody>
             @foreach($data as $user)
             <tr style="background-color: #f9f9f9; text-align: left; color: #333;">
+                <td style="padding: 12px; border: 1px solid #ddd;"><input type="checkbox" name="ids[]" value="{{$user->id}}"/></td>
                 <td style="padding: 12px; border: 1px solid #ddd;">{{$user->name}}</td>
                 <td style="padding: 12px; border: 1px solid #ddd;">{{$user->password}}</td>
                 <td style="padding: 12px; border: 1px solid #ddd;">{{$user->email}}</td>
@@ -30,6 +34,12 @@
             @endforeach
         </tbody>
     </table>
+
+    <button>Delete</button>
+    </form>
+    <br/>
+    <br/>
+    <br/>
     
     {{ $data->links() }}
 </div>
@@ -173,5 +183,8 @@
             font-size: 14px;
             padding: 8px 12px;
         }
+    }
+    .w-5.h-5{
+        width: 20px;
     }
 </style>
