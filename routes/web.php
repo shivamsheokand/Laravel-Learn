@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ImgCont;
+use App\Http\Controllers\TestController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,3 +22,4 @@ Route::view('admin','admin');
 Route::view('addimg','uploadimg');
 Route::post('uploadimg',[ImgCont::class,'upload']);
 Route::get('displayimg',[ImgCont::class,'display']);
+Route::get('test',[TestController::class,'test']);
