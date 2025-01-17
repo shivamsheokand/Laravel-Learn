@@ -12,3 +12,4 @@ Route::get('/testapi',function(){
     return ['name'=>"sam"];
 });
 Route::get('/testapi',[TsetControllerApi::class,'testapi']);
+Route::post('/testapi',[TsetControllerApi::class,'postapi']);
