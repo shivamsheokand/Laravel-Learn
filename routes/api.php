@@ -13,3 +13,4 @@ Route::get('/testapi',function(){
 });
 Route::get('/testapi',[TsetControllerApi::class,'testapi']);
 Route::post('/testapi',[TsetControllerApi::class,'postapi']);
+Route::put('/testapi/{id}',[TsetControllerApi::class,'putapi']);

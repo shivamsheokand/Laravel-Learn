@@ -21,4 +21,17 @@ class TsetControllerApi extends Controller
             return "data not added";
         }
     }
+    function putapi(Request $req,$id){
+        // return "put api called";
+        $user = Test::find($id);
+        $user->name=$req->name;
+        $user->email=$req->email;
+        $user->password=$req->password;
+        $user->save();
+        if($user->save()){
+            return "data update sucess";
+        }else{
+            return "data not updated";
+        }
+    }
 }   
