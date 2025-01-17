@@ -23,3 +23,4 @@ Route::resource('/res',TestRecourceController::class);
 
 
 Route::post('signup',[UserAuth::class,'signup']);
+Route::post('login',[UserAuth::class,'login']);
