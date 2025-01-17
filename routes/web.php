@@ -35,4 +35,5 @@ Route::get('manyToOne',[ItemInfoController::class,'manyToOne']);
 Route::get('addItem',[ItemInfoController::class,'addItems']);
 Route::post('addItem',[ItemInfoController::class,'addItem']);
 
-Route::get('sendmail',[MailController::class,'sendMail']);
+Route::post('sendmail',[MailController::class,'sendMail']);
+Route::view('sendmail','mailform');
