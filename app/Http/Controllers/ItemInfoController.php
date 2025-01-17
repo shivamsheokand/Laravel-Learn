@@ -38,6 +38,10 @@ class ItemInfoController extends Controller
         }
     }
     function getData(){
-        return Saller::find(1)->productData;
+        return Saller::find(3)->productData;
     }
+    function manyData(){
+        return Saller::find(3)->many;
+    }
+
 }
