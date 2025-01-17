@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ImgCont;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ItemInfoController;
+use App\Http\Controllers\MailController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,3 +34,5 @@ Route::get('many',[ItemInfoController::class,'manyData']);
 Route::get('manyToOne',[ItemInfoController::class,'manyToOne']);
 Route::get('addItem',[ItemInfoController::class,'addItems']);
 Route::post('addItem',[ItemInfoController::class,'addItem']);
+
+Route::get('sendmail',[MailController::class,'sendMail']);
