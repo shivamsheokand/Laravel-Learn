@@ -43,5 +43,8 @@ class ItemInfoController extends Controller
     function manyData(){
         return Saller::find(3)->many;
     }
-
+    function manyToOne(){
+        $data=Item::with('manyToOne')->get();
+        return $data;
+    }
 }

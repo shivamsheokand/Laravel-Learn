@@ -29,5 +29,6 @@ Route::get('mut',[TestController::class,'TestMut']);
 Route::post('addSeller',[ItemInfoController::class,'addSeller']);
 Route::get('addSeller',[ItemInfoController::class,'addSellers']);
 Route::get('many',[ItemInfoController::class,'manyData']);
+Route::get('manyToOne',[ItemInfoController::class,'manyToOne']);
 Route::get('addItem',[ItemInfoController::class,'addItems']);
 Route::post('addItem',[ItemInfoController::class,'addItem']);

@@ -11,6 +11,6 @@ class Saller extends Model
         return $this->hasOne('App\Models\Item');
     }
     function many(){
-        return $this->hasMany('App\Models\Item','seller_id');
+        return $this->hasMany('App\Models\Item');
     }
 }
