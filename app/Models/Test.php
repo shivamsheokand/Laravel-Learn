@@ -13,4 +13,7 @@ class Test extends Model
     function getEmailAttribute($val){
         return "S".$val;
     }
+    function setNameAttribute($val){
+        $this->attributes['name']=ucfirst($val);
+    }
 }

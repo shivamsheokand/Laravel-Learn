@@ -14,7 +14,7 @@ class TestSeeder extends Seeder
      */
     public function run(): void
     {
-        for($i=1;$i<=1000;$i++){
+        for($i=1;$i<=10;$i++){
             DB::table('tests')->insert([
             "name"=>Str::random(10),
             "password"=>Str::random(10),

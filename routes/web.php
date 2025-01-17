@@ -23,3 +23,4 @@ Route::view('addimg','uploadimg');
 Route::post('uploadimg',[ImgCont::class,'upload']);
 Route::get('displayimg',[ImgCont::class,'display']);
 Route::get('test',[TestController::class,'test']);
+Route::get('mut',[TestController::class,'TestMut']);
