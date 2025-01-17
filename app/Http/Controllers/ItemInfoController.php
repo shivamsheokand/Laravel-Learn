@@ -47,4 +47,8 @@ class ItemInfoController extends Controller
         $data=Item::with('manyToOne')->get();
         return $data;
     }
+    function binding(Item $key){
+        
+        return $key;
+    }
 }

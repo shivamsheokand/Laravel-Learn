@@ -37,3 +37,6 @@ Route::post('addItem',[ItemInfoController::class,'addItem']);
 
 Route::post('sendmail',[MailController::class,'sendMail']);
 Route::view('sendmail','mailform');
+
+
+Route::get('items/{key:item}',[ItemInfoController::class,'binding']);
