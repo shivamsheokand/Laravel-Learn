@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Test;
+
 class TsetControllerApi extends Controller
 {
     function testapi(){
@@ -11,6 +13,15 @@ class TsetControllerApi extends Controller
         return $data;
     }
     function postapi(Request $req){
+        $rules = array(
+            'name'=>'required | min:3 | max:10',
+            'email'=>'required ',
+            'password'=>'required | min:5 | max:10',
+        );
+        $validation = Validator::make($req->all(),$rules);
+        if($validation->fails()){
+            return $validation->errors();
+        }else{
         $data = new Test();
         $data->name=$req->name;
         $data->email=$req->email;
@@ -20,6 +31,7 @@ class TsetControllerApi extends Controller
         }else{
             return "data not added";
         }
+    }
     }
     function putapi(Request $req,$id){
         // return "put api called";
