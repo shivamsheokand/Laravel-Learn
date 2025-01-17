@@ -34,4 +34,12 @@ class TsetControllerApi extends Controller
             return "data not updated";
         }
     }
+    function deleteapi($id){
+        $data = Test::destroy($id);
+        if($data){
+            return "data delelte sucess";
+        }else{
+            return "data not deleted";
+        }
+    }
 }   
