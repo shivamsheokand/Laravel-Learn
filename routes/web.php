@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ImgCont;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\ItemInfoController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,3 +25,9 @@ Route::post('uploadimg',[ImgCont::class,'upload']);
 Route::get('displayimg',[ImgCont::class,'display']);
 Route::get('test',[TestController::class,'test']);
 Route::get('mut',[TestController::class,'TestMut']);
+
+Route::post('addSeller',[ItemInfoController::class,'addSeller']);
+Route::get('addSeller',[ItemInfoController::class,'addSellers']);
+Route::get('getData',[ItemInfoController::class,'getData']);
+Route::get('addItem',[ItemInfoController::class,'addItems']);
+Route::post('addItem',[ItemInfoController::class,'addItem']);
